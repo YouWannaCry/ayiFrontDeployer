@@ -1,7 +1,8 @@
 import './App.css'
-import ColorButtons from '../src/components/Buttons'
-import { store } from '../src/store'
+import ColorButtons from './components/Buttons'
+import { store } from './store/index'
 import { Provider } from 'react-redux'
+import { requestPermission } from './feats/pwa/push-notification'
 
 function App() {
 
@@ -10,7 +11,11 @@ function App() {
     <Provider store={store}>
       <div className="App">
         <ColorButtons/>
-        <script type="module" src="js/app.js" async></script>
+
+        <button onClick = { requestPermission } >
+          Click to register
+        </button>
+        
       </div>
     </Provider>
   )
