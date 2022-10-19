@@ -67,3 +67,4 @@ self.addEventListener('activate', event => {
 
   event.waitUntil(response); // Banca hasta que termine la promesa del response
 });
+
