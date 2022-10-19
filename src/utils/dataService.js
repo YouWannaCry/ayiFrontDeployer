@@ -26,6 +26,7 @@ export const getUserLocation = async () => {
         body: JSON.stringify(persona),
         headers: {
           "Content-Type": "application/json",
+          "Access-Control-Allow-Credentials" : true ,
         },
       })
         .then((res) => res.json())
