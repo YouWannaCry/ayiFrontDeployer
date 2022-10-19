@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react"
 
 const options = {
   enableHighAccuracy: true,
@@ -6,8 +5,11 @@ const options = {
   maximumAge: 0
 };
 
-export function success(pos) {
 
+
+
+
+export function GeoLocate(pos) {
   const crd = pos.coords;
   console.log(`More or less ${crd.accuracy} meters.`);
   let url = "https://www.google.com/maps/search/?api=1&query=" + crd.latitude + "%2c" + crd.longitude
@@ -18,4 +20,4 @@ function error(err) {
   console.warn(`ERROR(${err.code}): ${err.message}`);
 }
 
-navigator.geolocation.getCurrentPosition(success, error, options);
+navigator.geolocation.getCurrentPosition(GeoLocate, error, options);
