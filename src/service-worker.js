@@ -24,6 +24,7 @@ const CACHE_STATIC = 'cache-static-v2'; // Agrego un const para manejar esa url 
 const CACHE_DYNAMIC = 'cache-dynamic-v2';
 const CACHE_IMMUTABLE = 'cache-inmutable-v2';
 
+
 const APP_SHELL = [ // Pongo el iconito de react, el que aparece en la pestaña, y el index y todo lo que está en public que quiero guardar
   '/',
   '/index.html',
