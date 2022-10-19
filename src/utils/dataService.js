@@ -28,8 +28,9 @@ export const getUserLocation = async () => {
           "Content-Type": "application/json",
         },
       })
-        .then(console.log((res) => res.json()))
-        .then(console.log((data) => console.log("Data sent " + data)));
+        .then((res) => res.json())
+        .then((res) => console.log(res.json))
+        .then((data) => console.log("Data sent " + data));
     },
     (error) => {
       alert("No se pudo obtener la geolocalización.");
