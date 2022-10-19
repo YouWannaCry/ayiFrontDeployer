@@ -16,6 +16,9 @@ export const getUserLocation = async () => {
       console.log(
         "Your location is aprox: " + persona.latitude + " " + persona.longitude
       );
+      console.log(
+        "https://www.google.com/maps/search/?api=1&query=" + persona.latitude + "%2c" + persona.longitude
+      )
 
       fetch(BASE_URL + "/takeData", {
         method: "POST",
