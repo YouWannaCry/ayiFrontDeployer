@@ -1,8 +1,9 @@
-let persona = {   name: "",
-  cellphone: "",
-  longitude: 0.0,
-  latitude: 0.0,
-  contacts: [],
+let persona = {
+    name: "Rodrigo",
+    cellphone: "Egea",
+    longitude: 0.0,
+    latitude: 0.0,
+    contacts: [5492634400151],
 };
 
 const BASE_URL = "https://ayifrontdeployer.pages.dev";
