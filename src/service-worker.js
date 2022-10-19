@@ -7,8 +7,8 @@
 // You can also remove this file if you'd prefer not to use a
 // service worker, and the Workbox build step will be skipped.
 
-import { clientsClaim } from 'workbox-core'; // Workbox nos soluciona muchas cosas de las estrategias de caché
-import { precacheAndRoute } from 'workbox-precaching';
+import { clientsClaim } from "workbox-core"; // Workbox nos soluciona muchas cosas de las estrategias de caché
+import { precacheAndRoute } from "workbox-precaching";
 
 clientsClaim();
 
@@ -20,46 +20,51 @@ precacheAndRoute(self.__WB_MANIFEST);
 
 // Borré todo lo de abajo, me quedé con el precache
 
-const CACHE_STATIC = 'cache-static-v2'; // Agrego un const para manejar esa url desde este const
-const CACHE_DYNAMIC = 'cache-dynamic-v2';
-const CACHE_IMMUTABLE = 'cache-inmutable-v2';
+const CACHE_STATIC = "cache-static-v2"; // Agrego un const para manejar esa url desde este const
+const CACHE_DYNAMIC = "cache-dynamic-v2";
+const CACHE_IMMUTABLE = "cache-inmutable-v2";
 
-
-const APP_SHELL = [ // Pongo el iconito de react, el que aparece en la pestaña, y el index y todo lo que está en public que quiero guardar
-  '/',
-  '/index.html',
-  '/favicon.ico'
+const APP_SHELL = [
+  // Pongo el iconito de react, el que aparece en la pestaña, y el index y todo lo que está en public que quiero guardar
+  "/",
+  "/index.html",
+  "/favicon.ico",
 ];
 
 const APP_SHELL_IMMUTABLE = []; // Juani puso la fuente Roboto acá, el link de fonts.googleapis.com
 
-self.addEventListener('fetch', function(event) {
+self.addEventListener("fetch", function (event) {
   event.respondWith(
-      caches.match(event.request).then(function(response) {
-          return response || fetch(event.request);
-      })
+    caches.match(event.request).then(function (response) {
+      return response || fetch(event.request);
+    })
   );
 });
 
-self.addEventListener('install', event => {
-  const promise1 = caches.open(CACHE_STATIC) // Va a tratar de abrir la cache static definida más arriba
-    .then(cache => {
+self.addEventListener("install", (event) => {
+  const promise1 = caches
+    .open(CACHE_STATIC) // Va a tratar de abrir la cache static definida más arriba
+    .then((cache) => {
       cache.addAll(APP_SHELL); // Incorpora todo dentro de un array, en este caso APP_SHELL
     });
-  
-  const promise2 = caches.open(CACHE_IMMUTABLE) // Lo mismo pero con la inmutable
-    .then(cache => {
+
+  const promise2 = caches
+    .open(CACHE_IMMUTABLE) // Lo mismo pero con la inmutable
+    .then((cache) => {
       cache.addAll(APP_SHELL_IMMUTABLE);
     });
 
   event.waitUntil(Promise.all([promise1, promise2])); // Promise.all espera un array de promesas, y las espera todas
 });
 
-self.addEventListener('activate', event => {
-  const response = caches.keys() // Trae todos los nombres de las cache que tenga almacenada la api cache
-    .then(keys => {
-      keys.forEach(key => { // Recorremos las keys (nombres de las caches)
-        if(key != CACHE_STATIC && key.includes('static')) { // Vemos si el nombre es distinto al de static, y también que incluya en su nombre el string 'static'
+self.addEventListener("activate", (event) => {
+  const response = caches
+    .keys() // Trae todos los nombres de las cache que tenga almacenada la api cache
+    .then((keys) => {
+      keys.forEach((key) => {
+        // Recorremos las keys (nombres de las caches)
+        if (key != CACHE_STATIC && key.includes("static")) {
+          // Vemos si el nombre es distinto al de static, y también que incluya en su nombre el string 'static'
           // Si entro acá, el nombre es distinto y contiene el static en su nombre
           return caches.delete(key); // Limpia la caché. Returna true o false, dependiendo si la pudo borrar o no. No nos importa por ahora lo que devuelva
         }
@@ -68,4 +73,3 @@ self.addEventListener('activate', event => {
 
   event.waitUntil(response); // Banca hasta que termine la promesa del response
 });
-
