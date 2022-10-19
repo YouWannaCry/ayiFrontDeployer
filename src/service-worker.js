@@ -20,9 +20,9 @@ precacheAndRoute(self.__WB_MANIFEST);
 
 // Borré todo lo de abajo, me quedé con el precache
 
-const CACHE_STATIC = 'cache-static-v1'; // Agrego un const para manejar esa url desde este const
-const CACHE_DYNAMIC = 'cache-dynamic-v1';
-const CACHE_IMMUTABLE = 'cache-inmutable-v1';
+const CACHE_STATIC = 'cache-static-v2'; // Agrego un const para manejar esa url desde este const
+const CACHE_DYNAMIC = 'cache-dynamic-v2';
+const CACHE_IMMUTABLE = 'cache-inmutable-v2';
 
 const APP_SHELL = [ // Pongo el iconito de react, el que aparece en la pestaña, y el index y todo lo que está en public que quiero guardar
   '/',
