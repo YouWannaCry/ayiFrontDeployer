@@ -12,9 +12,6 @@ import { geolocation, success } from './feats/pwa/geolocation'
 
 function App() {
 
-// const logIn = () => {
-//   signInAnonymously(getAuth()).then(usuario=>console.log(usuario))
-// }
 
 const messagingEnabling = async()=>{
   const token = await getToken(messaging, { 
@@ -38,10 +35,6 @@ React.useEffect(()=> {
         <ToastContainer/>
 
         <ColorButtons onClick = { success }/>
-
-        {/* <button onClick={logIn}>
-          Log In
-        </button> */}
         <button onClick={messagingEnabling}>
           Token
         </button>
