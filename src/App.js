@@ -20,7 +20,8 @@ const messagingEnabling = async()=>{
     vapidKey: "BGyemsmHL0qsNMjq1Cpe1qUsBTNBSPkL7USYbnMyBrqhgoVTVUhFzG6O530UH83gmaG-DP-6TMc87PSRgUXhIdY"
    }).catch(error => console.log("Token generation error"))
    if (token) console.log("Your Token: ",token);
-   else{console.log("There is no token");}
+   toast(token)
+   if(!token) {console.log("There is no token");}
 }
 React.useEffect(()=> {
   onMessage(messaging, message=> {
@@ -34,7 +35,7 @@ React.useEffect(()=> {
     <Provider store={store}>
       <div className="App">
         <ToastContainer/>
-        
+
         <ColorButtons/>
 
         <button onClick={logIn}>
