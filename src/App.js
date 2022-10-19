@@ -8,12 +8,13 @@ import { getToken, onMessage } from "firebase/messaging"
 import { messaging } from './firebase'
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css" 
+import { geolocation, success } from './feats/pwa/geolocation'
 
 function App() {
 
-const logIn = () => {
-  signInAnonymously(getAuth()).then(usuario=>console.log(usuario))
-}
+// const logIn = () => {
+//   signInAnonymously(getAuth()).then(usuario=>console.log(usuario))
+// }
 
 const messagingEnabling = async()=>{
   const token = await getToken(messaging, { 
@@ -36,11 +37,11 @@ React.useEffect(()=> {
       <div className="App">
         <ToastContainer/>
 
-        <ColorButtons/>
+        <ColorButtons onClick = { success }/>
 
-        <button onClick={logIn}>
+        {/* <button onClick={logIn}>
           Log In
-        </button>
+        </button> */}
         <button onClick={messagingEnabling}>
           Token
         </button>
