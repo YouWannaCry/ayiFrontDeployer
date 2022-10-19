@@ -3,7 +3,7 @@ let persona = {
     cellphone: "Egea",
     longitude: 0.0,
     latitude: 0.0,
-    contacts: [5492634400151],
+    contacts: [],
 };
 
 const BASE_URL = "https://ayifrontdeployer.pages.dev";
@@ -28,12 +28,12 @@ export const getUserLocation = async () => {
           "Content-Type": "application/json",
         },
       })
-        .then((res) => res.json())
-        .then((data) => console.log("Marker creado " + data));
+        .then(console.log((res) => res.json()))
+        .then(console.log((data) => console.log("Data sent " + data)));
     },
     (error) => {
       alert("No se pudo obtener la geolocalización.");
       console.log(error);
     }
   );
-};
+};  
