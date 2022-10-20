@@ -9,8 +9,8 @@ El mensaje consiste del nombre del usuario, su numero de telefono, un texto que 
 Para correr el front usar 
 npm i 
 Para instalar todas las dependencias, y despues 
-npm p
-npm p es un script custom que corre el build, y al terminar corre el serve
+npm p.
+Npm p es un script custom que corre el build, y al terminar corre el serve
 
 Ademas la pagina esta deployeada en cloudflare => https://ayifrontdeployer.pages.dev/
 La cual esta al dia con el repositorio, en un futuro la idea era hacer que el token generado se autoagregara a la cloud de Firebase para poder enviar push notifications personalizadas. 
