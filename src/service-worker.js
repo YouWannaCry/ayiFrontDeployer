@@ -27,7 +27,7 @@ const CACHE_IMMUTABLE = "cache-inmutable-v2";
 const APP_SHELL = [
   "/",
   "/index.html",
-  "/src/components"
+  "/src/components",
 ];
 
 const APP_SHELL_IMMUTABLE = [];

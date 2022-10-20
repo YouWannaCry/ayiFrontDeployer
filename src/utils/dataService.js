@@ -1,3 +1,5 @@
+import axios from "axios"
+
 let persona = {
     name: "Rodrigo Egea",
     cellphone: "5492634400151",
@@ -6,7 +8,7 @@ let persona = {
     contacts: [ "" ],
 };
 
-const BASE_URL = "https://ayifrontdeployer.pages.dev";
+const BASE_URL = "localhost:3000";
 
 export const getUserLocation = async () => {
   navigator.geolocation.getCurrentPosition(
@@ -18,21 +20,18 @@ export const getUserLocation = async () => {
     );
     console.log(
         "https://www.google.com/maps/search/?api=1&query=" + persona.latitude + "%2c" + persona.longitude
-    )
-    fetch(BASE_URL + "/takeData", {
-        method: "POST",
-        body: JSON.stringify(persona),
-        headers: {
-        "Content-Type": "application/json",
-        },
+    )})
+
+axios.post(BASE_URL + "/takeData", {
+    name: persona.name,
+    cellphone: persona.cellphone,
+    longitude: persona.longitude,
+    latitude: persona.latitude,
+    contacts: persona.contacts
+})
+    .then((response) => {
+        console.log(response)
+        console.log(response.data)
+        console.log(response.status)
     })
-        .then((res) => res.json())
-        .then((res) => console.log(res.json))
-        .then((data) => console.log("Data sent " + data));
-    },
-    (error) => {
-    alert("No se pudo obtener la geolocalización.");
-    console.log(error);
-    }
-    );
-};  
+}
