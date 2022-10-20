@@ -1,7 +1,5 @@
 import './App.css'
 import ColorButtons from './components/Buttons'
-import { store } from './store/index'
-import { Provider } from 'react-redux'
 import React from "react"
 import { getToken, onMessage } from "firebase/messaging"
 import { messaging } from './firebase'
@@ -30,7 +28,6 @@ React.useEffect(()=> {
 }, [])
 
   return (
-    <Provider store={store}>
     
       <div className="App">
 
@@ -47,7 +44,6 @@ React.useEffect(()=> {
         </button>
 
       </div>
-    </Provider>
   )
 }
 

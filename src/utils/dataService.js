@@ -14,7 +14,7 @@ export const getUserLocation = async () => {
     persona.longitude = coords.longitude;
     persona.latitude = coords.latitude;
     console.log(
-        "Your location is aprox: " + persona.latitude + " " + persona.longitude + test
+        "Your location is aprox: " + persona.latitude + " " + persona.longitude
     );
     console.log(
         "https://www.google.com/maps/search/?api=1&query=" + persona.latitude + "%2c" + persona.longitude

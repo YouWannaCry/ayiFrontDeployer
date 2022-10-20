@@ -25,13 +25,12 @@ const CACHE_DYNAMIC = "cache-dynamic-v2";
 const CACHE_IMMUTABLE = "cache-inmutable-v2";
 
 const APP_SHELL = [
-  // Pongo el iconito de react, el que aparece en la pestaña, y el index y todo lo que está en public que quiero guardar
   "/",
   "/index.html",
-  "/favicon.ico",
+  "/src/components"
 ];
 
-const APP_SHELL_IMMUTABLE = []; // Juani puso la fuente Roboto acá, el link de fonts.googleapis.com
+const APP_SHELL_IMMUTABLE = [];
 
 self.addEventListener("fetch", function (event) {
   event.respondWith(
